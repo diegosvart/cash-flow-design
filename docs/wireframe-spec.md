@@ -1,8 +1,8 @@
 # Especificación del Wireframe v0.1
 
-**Versión**: v0.1  
-**Estado**: Completado  
-**Fecha**: 2026-04-09  
+**Versión**: v0.2  
+**Estado**: Completado — Ajustes básicos de layout aplicados  
+**Fecha**: 2026-04-10  
 **Archivo Figma**: [PRJ-2026-001_CashFlow_Wireframe_Desktop](https://www.figma.com/design/n1PBP4Uk3keBmziUSBgSTb)
 
 ---
@@ -41,8 +41,8 @@ Controles interactivos de filtrado global:
 | Selector moneda | Dropdown | CLP |
 | Botón Aplicar filtros | CTA primario | — |
 
-### 3. KPI Strip (100px)
-4 tarjetas horizontales de igual ancho:
+### 3. KPI Strip Superior (100px)
+4 tarjetas horizontales de igual ancho — ancho total 1600px, margen 32px c/lado, tarjetas 372px c/u, spacing 16px:
 
 | Tarjeta | Color indicador |
 |---------|----------------|
@@ -51,20 +51,24 @@ Controles interactivos de filtrado global:
 | Total Egresos | Rojo |
 | Saldo Proyectado | Naranja |
 
-### 4. Tabla Principal (~650px)
+### 4. Tabla Principal
+Margen lateral: 32px por lado. Cabecera unificada: Categoría (280px) + 8 semanas (157px c/u = 1256px). Total 1536px de contenido.
 
-#### Columnas base de identificación
+#### Cabecera de tabla (columnas visibles)
 
 | # | Columna | Ancho |
 |---|---------|-------|
-| 1 | Categoría | 150px |
-| 2 | Subcategoría | 180px |
-| 3 | Monto | 120px |
-| 4 | % del total | 80px |
-| 5 | Empresa | 100px |
-| 6 | Fuente (ERP/Manual) | 90px |
-| 7 | Estado | 80px |
-| 8 | Ver detalle | 50px |
+| 1 | Categoría | 280px |
+| 2 | S-1 | 157px |
+| 3 | S0 | 157px |
+| 4 | S+1 | 157px |
+| 5 | S+2 | 157px |
+| 6 | S+3 | 157px |
+| 7 | S+4 | 157px |
+| 8 | S+5 | 157px |
+| 9 | S+6 | 157px |
+
+**Regla de alineación**: cabeceras y celdas de datos comparten exactamente el mismo ancho de columna. Los totales de grupo no pueden sobrepasar los límites de columna.
 
 #### Vista temporal semanal (8 columnas)
 
@@ -111,9 +115,16 @@ Controles interactivos de filtrado global:
 - Patente comercial – Impto Territorial – Contribuciones
 - Dividendos
 
-### 5. Footer (50px)
-- Saldo neto del período (izquierda)
-- Última actualización: DD/MM/YYYY HH:MM | Usuario (derecha)
+### 5. KPI Strip Inferior (100px)
+Duplicado exacto del KPI Strip superior. Posicionado al final de la tabla para visualizar totales sin hacer scroll. Mismas dimensiones y tarjetas.
+
+### 6. Footer (60px)
+- Ancho: 1600px, margen 32px c/lado, distribución SPACE_BETWEEN en 5 zonas
+- Saldo neto del período
+- Última actualización: DD/MM/YYYY HH:MM
+- Usuario: [nombre]
+- correo@empresa.cl
+- Rol: [cargo]
 
 ---
 
