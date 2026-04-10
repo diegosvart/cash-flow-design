@@ -1,0 +1,10 @@
+# Global owner (fallback)
+* @diegosvart
+
+# Governance and project policy
+governance/** @diegosvart
+docs/** @diegosvart
+design-assets/** @diegosvart
+.github/** @diegosvart
+README.md @diegosvart
+CHANGELOG.md @diegosvart

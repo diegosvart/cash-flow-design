@@ -1,0 +1,36 @@
+name: PR Metadata
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [main]
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate title and body
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title || "";
+            const body = context.payload.pull_request.body || "";
+
+            const titleOk = /^(feat|fix|docs|chore|refactor|PRJ-2026-001)/i.test(title);
+            const bodyHasSummary = body.includes('## Resumen');
+            const bodyHasChecklist = body.includes('## Checklist de salida');
+
+            const errors = [];
+            if (!titleOk) {
+              errors.push('El titulo del PR debe iniciar con feat|fix|docs|chore|refactor o PRJ-2026-001.');
+            }
+            if (!bodyHasSummary) {
+              errors.push('El cuerpo del PR debe incluir la seccion "## Resumen".');
+            }
+            if (!bodyHasChecklist) {
+              errors.push('El cuerpo del PR debe incluir la seccion "## Checklist de salida".');
+            }
+
+            if (errors.length) {
+              core.setFailed(errors.join('\n'));
+            }
